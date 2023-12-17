@@ -12,7 +12,8 @@ def test_atg_world_availability():
         if response.status_code == 200:
             assert True, "atg.world website is available."
         else:
-            raise AssertionError(f"Unexpected response code: {response.status_code}")
+           raise AssertionError("Unexpected response code: {}".format(response.status_code))
+
     except requests.exceptions.Timeout:
         raise AssertionError("Connection timed out. atg.world might be unavailable.")
     except Exception as e:
