@@ -4,7 +4,7 @@ import requests
 class TestATGWorldWebsite(unittest.TestCase):
 
     def test_website_access(self):
-        url = "https://atgsdgdasgsggsafa4w6634ld"
+        url = "https://atg.world/"
 
         try:
             # Attempt to connect to the website
