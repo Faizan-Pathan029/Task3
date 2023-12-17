@@ -1,3 +1,5 @@
+import requests
+
 def test_atg_world_availability():
     """
     Test if atg.world website is available.
