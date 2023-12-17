@@ -1,23 +1,23 @@
+import unittest
 import requests
 
-def test_atg_world_availability():
-    """
-    Test if atg.world website is available.
-    """
-    url = "https://www.atg.world/"
-    timeout = 5  # seconds
+class TestATGWorldWebsite(unittest.TestCase):
 
-    try:
-        response = requests.get(url, timeout=timeout)
-        if response.status_code == 200:
-            assert True, "atg.world website is available."
-        else:
-           raise AssertionError("Unexpected response code: {}".format(response.status_code))
+    def test_website_access(self):
+        url = "https://atg.world"
 
-    except requests.exceptions.Timeout:
-        raise AssertionError("Connection timed out. atg.world might be unavailable.")
-    except Exception as e:
-        raise AssertionError(f"Unexpected error: {e}")
+        try:
+            # Attempt to connect to the website
+            response = requests.get(url)
+            
+            # Check if the status code is 200 (OK)
+            self.assertEqual(response.status_code, 200, "Failed to access {}. Status code: {}".format(url, response.status_code))
 
-if __name__ == "__main__":
-    test_atg_world_availability()
+            # Additional checks can be added if necessary, such as checking for specific content on the page
+
+        except requests.RequestException as e:
+            # If an exception occurs during the request (e.g., connection error), mark the test as failed
+            self.fail("Failed to access {}. Exception: {}".format(url, e))
+
+if __name__ == '__main__':
+    unittest.main()
