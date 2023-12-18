@@ -7,13 +7,13 @@ class TestATGWorldWebsite(unittest.TestCase):
         url = "https://atg.world/"
 
         try:
-            # Attempt to connect to the website
+    
             response = requests.get(url)
             
-            # Check if the status code is 200 (OK)
+         
             self.assertEqual(response.status_code, 200, "Failed to access {}. Status code: {}".format(url, response.status_code))
 
-            # Additional checks can be added if necessary, such as checking for specific content on the page
+         
 
         except requests.RequestException as e:
             # If an exception occurs during the request (e.g., connection error), mark the test as failed
